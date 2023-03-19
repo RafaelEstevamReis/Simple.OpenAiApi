@@ -2,10 +2,10 @@
 
 public class CompletionRequest
 {
-    public string Model { get; set; }
-    public string Prompt { get; set; }
-    public int? Max_Tokens { get; set; }
-    public double Temperature { get; set; }
+    public string model { get; set; }
+    public string prompt { get; set; }
+    public int? max_tokens { get; set; }
+    public double? temperature { get; set; }
 
 }
 public class CompletionResponse
