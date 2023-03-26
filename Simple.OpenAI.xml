@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Simple.OpenAI</name>
+    </assembly>
+    <members>
+        <member name="P:Simple.OpenAI.ApiModels.ChatRequest.model">
+            <summary>
+            ID of the model to use. See the model endpoint compatibility table for details on which models work with the Chat API.
+            https://platform.openai.com/docs/models/model-endpoint-compatibility
+            </summary>
+        </member>
+        <member name="P:Simple.OpenAI.ApiModels.ChatRequest.messages">
+            <summary>
+            The messages to generate chat completions for, in the chat format.
+            </summary>
+        </member>
+        <member name="P:Simple.OpenAI.ApiModels.ChatRequest.max_tokens">
+            <summary>
+            The maximum number of tokens to generate in the chat completion.
+            The total length of input tokens and generated tokens is limited by the model's context length.
+            </summary>
+        </member>
+        <member name="P:Simple.OpenAI.ApiModels.ChatRequest.temperature">
+            <summary>
+            What sampling temperature to use, between 0 and 2. 
+            Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.
+            </summary>
+        </member>
+        <member name="P:Simple.OpenAI.ApiModels.ChatRequest.user">
+            <summary>
+            A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse
+            </summary>
+        </member>
+        <member name="T:Simple.OpenAI.OpenAI">
+            <summary>
+            Requests data from OpenAI using it's API
+            </summary>
+        </member>
+        <member name="M:Simple.OpenAI.OpenAI.#ctor(System.String)">
+            <summary>
+            Creates an OpenAPI API object using user's API Key
+            </summary>
+            <param name="key">User's API Key</param>
+        </member>
+        <member name="M:Simple.OpenAI.OpenAI.GetModelsAsync">
+            <summary>
+            Lists the currently available models
+            </summary>
+            <returns>Models information</returns>
+        </member>
+        <member name="M:Simple.OpenAI.OpenAI.GetModelAsync(System.String)">
+            <summary>
+            Provides basic information about each model such as the owner and availability.
+            </summary>
+            <param name="modelId">Model id</param>
+            <returns>Model information</returns>
+        </member>
+        <member name="M:Simple.OpenAI.OpenAI.TextCompletion(Simple.OpenAI.ApiModels.CompletionRequest)">
+            <summary>
+            Creates a completion for the provided prompt and parameters
+            </summary>
+            <param name="request">Request parameters</param>
+            <returns>Chat response</returns>
+        </member>
+        <member name="M:Simple.OpenAI.OpenAI.ChatCompletionAsync(Simple.OpenAI.ApiModels.ChatRequest)">
+            <summary>
+            Creates a completion for the chat message
+            </summary>
+            <param name="request">Request parameters</param>
+            <returns>Chat response</returns>
+        </member>
+    </members>
+</doc>
