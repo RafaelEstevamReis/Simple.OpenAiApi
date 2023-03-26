@@ -2,9 +2,31 @@
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.1</TargetFramework>
-		<Nullable>disable</Nullable>
 		<LangVersion>10</LangVersion>
+		<Nullable>warnings</Nullable>
+		<ImplicitUsings>disable</ImplicitUsings>
+		<Version>0.9.0</Version>
+		<Authors>RafaelEstevam.Net</Authors>
+		<Company>RafaelEstevam.Net</Company>
+		<Product>OpenAI API Library for C#</Product>
+		<Description>OpenAI API Library for C#</Description>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/RafaelEstevamReis/Simple.OpenAiApi</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/RafaelEstevamReis/Simple.OpenAiApi</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<NoWarn>$(NoWarn);1591</NoWarn>
 	</PropertyGroup>
+	<PropertyGroup>
+		<DocumentationFile>..\Simple.OpenAI.xml</DocumentationFile>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Include="..\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Simple.API" Version="1.6.3" />
