@@ -1,7 +1,7 @@
 ﻿using Simple.API;
 using System.Threading.Tasks;
 
-namespace Simple.OAI.Lib;
+namespace Simple.OpenAI;
 
 public class OpenAI
 {

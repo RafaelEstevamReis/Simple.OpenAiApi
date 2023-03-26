@@ -1,4 +1,4 @@
-﻿namespace Simple.OAI.Lib.ApiModels;
+﻿namespace Simple.OpenAI.ApiModels;
 
 internal class ListModels
 {

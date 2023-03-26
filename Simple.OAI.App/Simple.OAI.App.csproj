@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Simple.OAI.Lib\Simple.OAI.Lib.csproj" />
+    <ProjectReference Include="..\Simple.OAI.Lib\Simple.OpenAI.csproj" />
   </ItemGroup>
 
 </Project>
