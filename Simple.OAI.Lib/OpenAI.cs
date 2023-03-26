@@ -11,6 +11,12 @@ public class OpenAI
     {
         client = new ClientInfo("https://api.openai.com/");
         client.SetAuthorizationBearer(key);
+        client.ResponseDataReceived += Client_ResponseDataReceived;
+    }
+
+    private void Client_ResponseDataReceived(object sender, ClientInfo.ResponseReceived e)
+    {
+        
     }
 
     public async Task<ApiModels.Model[]> GetModelsAsync()
@@ -31,6 +37,14 @@ public class OpenAI
     public async Task<ApiModels.CompletionResponse> TextCompletion(ApiModels.CompletionRequest request)
     {
         var resp = await client.PostAsync<ApiModels.CompletionResponse>("v1/completions", request);
+        if (!resp.IsSuccessStatusCode) { }
+        resp.EnsureSuccessStatusCode();
+        return resp.Data;
+    }
+
+    public async Task<ApiModels.ChatResponse> ChatCompletionAsync(ApiModels.ChatRequest request)
+    {
+        var resp = await client.PostAsync<ApiModels.ChatResponse>("v1/chat/completions", request);
         if (!resp.IsSuccessStatusCode) { }
         resp.EnsureSuccessStatusCode();
         return resp.Data;

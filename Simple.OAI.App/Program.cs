@@ -1,5 +1,5 @@
-﻿using Simple.OAI.Lib;
-using Simple.OAI.Lib.ApiModels;
+﻿using Simple.OpenAI;
+using Simple.OpenAI.ApiModels;
 using System;
 using System.IO;
 
@@ -38,17 +38,31 @@ while (true)
     string prompt = Console.ReadLine() ?? "";
     if (string.IsNullOrEmpty(prompt)) break;
 
-    var resp = await api.TextCompletion(new Simple.OAI.Lib.ApiModels.CompletionRequest()
+    var resp = await api.ChatCompletionAsync(new ChatRequest()
     {
-        //model = "text-ada-001", // cheaper for testing
-        model = "text-babbage-001",
-        prompt = prompt,
-        max_tokens = 25, // cheaper for testing
+        model = "gpt-3.5-turbo",
+        max_tokens = 25,
+        messages = new ChatMessage[] {
+            new ChatMessage()
+            {
+                 role =ChatMessage.ROLE_USER,
+                 content = prompt, //"O que é uma API?",
+            }
+        }
     });
+
+    //var resp = await api.TextCompletion(new CompletionRequest()
+    //{
+    //    //model = "text-ada-001", // cheaper for testing
+    //    model = "text-babbage-001",
+    //    prompt = prompt,
+    //    max_tokens = 25, // cheaper for testing
+    //});
 
     for (int i = 0; i < resp.choices.Length; i++)
     {
-        Console.Write($"[{i + 1}]> " + resp.choices[i].text);
+        //Console.Write($"[{i + 1}]> " + resp.choices[i].text);
+        Console.Write($"[{i + 1}]> " + resp.choices[i].message.content);
         Console.WriteLine("[" + resp.choices[i].finish_reason + "]");
         Console.WriteLine();
     }
