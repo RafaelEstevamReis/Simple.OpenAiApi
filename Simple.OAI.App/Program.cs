@@ -13,10 +13,12 @@ if (!File.Exists(KEY_FILE))
     string key = Console.ReadLine() ?? "";
     File.WriteAllText(KEY_FILE, key);
 }
+
 // You may need to setup a credit card to your account
 // After, you may also need to create a new api token
-OpenAI api = new OpenAI(File.ReadAllLines(KEY_FILE)[0]);
-
+string apiKEY = File.ReadAllLines(KEY_FILE)[0];
+// Creates object
+OpenAI api = new OpenAI(apiKEY);
 
 //Console.WriteLine("List All");
 //var models = await api.GetModelsAsync();
@@ -27,7 +29,6 @@ OpenAI api = new OpenAI(File.ReadAllLines(KEY_FILE)[0]);
 
 //// Get Whisper
 //Console.WriteLine(await api.GetModelAsync("text-ada-001"));
-
 
 
 Usage usage = new Usage();
