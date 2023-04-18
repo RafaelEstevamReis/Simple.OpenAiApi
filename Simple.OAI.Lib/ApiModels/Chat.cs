@@ -1,6 +1,7 @@
-﻿using System;
+﻿namespace Simple.OpenAI.ApiModels;
 
-namespace Simple.OpenAI.ApiModels;
+using Newtonsoft.Json;
+using System;
 
 public class ChatRequest
 {
@@ -26,7 +27,8 @@ public class ChatRequest
     /// <summary>
     /// A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse
     /// </summary>
-    public string? user { get; set; }
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public string user { get; set; }
 }
 public class ChatMessage
 {
@@ -52,5 +54,7 @@ public class ChatChoices
     public int index { get; set; }
     public ChatMessage message { get; set; }
     public string finish_reason { get; set; }
+
+    public string text => message.content;
 }
 
